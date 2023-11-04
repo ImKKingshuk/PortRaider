@@ -14,3 +14,24 @@
 - Alerting system to notify users of specific conditions, such as the detection of critical vulnerabilities.
 
 ## Installation
+
+#NetworkPortScanner
+Open Port Detection
+Network Security Tool
+Port Scanning Utility
+Cybersecurity Software
+Vulnerability Assessment
+Bash Scripting
+IT Security
+Network Assessment
+Penetration Testing
+Network Security
+Port Scanning
+Cybersecurity
+Pentesting
+Bash Script
+Port Discovery
+Vulnerability Detection
+Network Exploration
+Information Security
+Open Source
