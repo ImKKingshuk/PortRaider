@@ -9,6 +9,6 @@ PortRaider is a network port scanning tool that allows you to explore and scan o
 - Scanning of common ports for quick assessment
 - Scanning of a range of IP addresses
 - Option to save results in JSON or plain text (txt) format
-- Alerting system to notify users of specific conditions
+- Alerting system to notify users of specific conditions, such as the detection of critical vulnerabilities.
 
 ## Installation
