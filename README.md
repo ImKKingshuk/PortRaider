@@ -1,6 +1,6 @@
 <h1 align="center">🏴‍☠️ PortRaider - Your Network Port Scanning Navigator 🔍</h1>
 
-<h3 align="center"> 🌐 **Explore, Scan, Secure** 🛡️</h3>
+<h3 align="center"> 🌐 Explore, Scan, Secure 🛡️</h3>
 
 <p align="center">PortRaider is a versatile command-line tool that serves as your trusty navigator through the world of network ports. Discover the secrets of open and closed ports, scan common services, and detect vulnerabilities with ease. Save your findings in JSON or plain text format, and set up alerts for those critical discoveries. Embrace the spirit of exploration and fortify your network defenses with PortRaider. ⚓ </p>
 
