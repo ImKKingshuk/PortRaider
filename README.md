@@ -15,7 +15,7 @@
 
 ## Installation
 
-#NetworkPortScanner
+Network Port Scanner
 Open Port Detection
 Network Security Tool
 Port Scanning Utility
