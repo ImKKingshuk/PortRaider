@@ -1,4 +1,4 @@
-<h1 align="center"> PortRaider</h1>
+<h1 align="center">🏴‍☠️ PortRaider - Your Network Port Scanning Navigator 🔍</h1>
 
 <h3 align="center"> 🌐 **Explore, Scan, Secure** 🛡️</h3>
 
