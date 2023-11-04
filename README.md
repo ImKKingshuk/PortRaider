@@ -1,6 +1,8 @@
-# PortRaider
+<h1 align="center"> PortRaider</h1>
 
-PortRaider is a network port scanning tool that allows you to explore and scan open and closed ports on a specified host or IP address. It is designed for security researchers and network administrators to assess the status of network services and ports.
+<h3 align="center"> 🌐 **Explore, Scan, Secure** 🛡️</h3>
+
+<p align="center">PortRaider is a versatile command-line tool that serves as your trusty navigator through the world of network ports. Discover the secrets of open and closed ports, scan common services, and detect vulnerabilities with ease. Save your findings in JSON or plain text format, and set up alerts for those critical discoveries. Embrace the spirit of exploration and fortify your network defenses with PortRaider. ⚓ </p>
 
 ## Features
 
