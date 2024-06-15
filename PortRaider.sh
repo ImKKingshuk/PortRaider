@@ -1,23 +1,28 @@
 #!/bin/bash
 
 
-welcome_screen() {
-    cat << "EOF"
-******************************************
-*               PortRaider               *
-*          Network Research Tool         *
-*      ----------------------------      *
-*                        by @ImKKingshuk *
-* Github- https://github.com/ImKKingshuk *
-******************************************
-EOF
+print_banner() {
+    local banner=(
+        "******************************************"
+        "*                PortRaider              *"
+        "*          Network Research Tool         *"
+        "*                  v1.3.1                *"
+        "*      ----------------------------      *"
+        "*                        by @ImKKingshuk *"
+        "* Github- https://github.com/ImKKingshuk *"
+        "******************************************"
+    )
+    local width=$(tput cols)
+    for line in "${banner[@]}"; do
+        printf "%*s\n" $(((${#line} + width) / 2)) "$line"
+    done
+    echo
 }
 
 
 port_scan() {
-    host="$1"
-    port="$2"
-
+    local host="$1"
+    local port="$2"
 
     (echo >/dev/tcp/"$host"/"$port") 2>/dev/null
     if [ $? -eq 0 ]; then
@@ -29,11 +34,11 @@ port_scan() {
 
 
 parallel_port_scan() {
-    host="$1"
-    port_range="$2"
+    local host="$1"
+    local port_range="$2"
     for port in $(seq $port_range); do
         port_scan "$host" "$port" &
-        # Limit the number of concurrent scans to 50 (adjust as needed)
+      
         if [ $(jobs | wc -l) -ge 50 ]; then
             wait -n
         fi
@@ -43,10 +48,11 @@ parallel_port_scan() {
 
 
 save_results() {
-    host="$1"
-    port_range="$2"
-    output_file="$3"
-    if [[ "$4" == "json" ]]; then
+    local host="$1"
+    local port_range="$2"
+    local output_file="$3"
+    local format="$4"
+    if [[ "$format" == "json" ]]; then
         parallel_port_scan "$host" "$port_range" | jq -c . > "$output_file"
     else
         parallel_port_scan "$host" "$port_range" > "$output_file"
@@ -56,26 +62,27 @@ save_results() {
 
 
 discover_common_ports() {
-    host="$1"
-    common_ports="21 22 80 443 3306"  # Add more ports as needed
+    local host="$1"
+    local common_ports="21 22 80 443 3306"  
     echo "Scanning common ports ($common_ports) on $host..."
     parallel_port_scan "$host" "$common_ports"
 }
 
 
 scan_ip_range() {
-    base_ip="$1"
-    start_range="$2"
-    end_range="$3"
+    local base_ip="$1"
+    local start_range="$2"
+    local end_range="$3"
+    local port_range="$4"
     for ip in $(seq $start_range $end_range); do
-        host="$base_ip.$ip"
+        local host="$base_ip.$ip"
         parallel_port_scan "$host" "$port_range"
     done
 }
 
 
 main() {
-    welcome_screen  
+    print_banner
 
     read -p "Enter the host or IP to scan: " host
     read -p "Enter the range of ports to scan (e.g., 80-1000): " port_range
@@ -99,11 +106,12 @@ main() {
         read -p "Enter the base IP address (e.g., 192.168.0): " base_ip
         read -p "Enter the starting IP range: " start_range
         read -p "Enter the ending IP range: " end_range
-        scan_ip_range "$base_ip" "$start_range" "$end_range"
+        scan_ip_range "$base_ip" "$start_range" "$end_range" "$port_range"
     fi
 
     echo "Port scanning complete."
 }
+
 
 if [[ "$1" == "--help" || "$1" == "-h" ]]; then
     echo "Usage: $0"
